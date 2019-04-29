@@ -1,0 +1,16 @@
+{{>header}}
+<h2>{{{mostrar}}}</h2>
+{{{mensaje}}}
+<form action="/cambiar" method="post">
+    <div class="form-group">
+        <label>Contraseña actual:</label>
+        <input type="password" class="form-control" name="viejaPass" placeholder="Escriba por favor su contraseña actual" required>
+        <label>Contraseña nueva:</label>
+        <input type="password" class="form-control" name="nuevaPass" placeholder="Escriba por favor su nueva contraseña" required>
+        <br>
+        <div class="text-right">
+            <button class="btn btn-dark">Cambiar contraseña</button>
+        </div>
+    </div>
+</form>
+{{>footer}}

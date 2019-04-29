@@ -1,0 +1,32 @@
+{{>header}}
+<div class="container">
+  <h2>Bienvenido.</h2>
+  <div id="contador">
+</div>
+  <p>Formulario para registrarse en la plataforma.</p>
+  {{{mostrar}}}
+  <form action="/" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+      <label>Documento de identidad:</label>
+      <input type="number" class="form-control" name="dni" placeholder="Documento de identidad" required>
+      <label>Nombre completo:</label>
+      <input type="text" class="form-control" name="nombre" value="{{nombre}}" placeholder="Nombre completo" required>
+      <label>Correo:</label>
+      <input type="email" class="form-control" name="correo" value="{{correo}}" placeholder="Correo personal" required>
+      <label>Teléfono:</label>
+      <input type="number" class="form-control" name="tel" value="{{tel}}" placeholder="Número telefónico" required>
+      <label>Contraseña:</label>
+      <input type="password" class="form-control" name="password" placeholder="Contraseña" required>
+      <label>Foto de perfil:</label><br>
+      <input type="file" name="archivo" accept="image/*" required>
+      <br>
+      <div class="text-right">
+        <button class="btn btn-dark">Registrar</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+<script src="socket.io/socket.io.js"></script>
+<script src="js/socket.js"></script>
+{{>footer}}

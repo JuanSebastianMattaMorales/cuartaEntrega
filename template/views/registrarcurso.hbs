@@ -1,0 +1,33 @@
+{{>header}}
+<div class="container">
+  <h3>{{titulo}}</h3>
+  <p>A continuación puede llenar el siguiente formulario para registrarse en la plataforma.</p>
+  {{{mostrar}}}
+  <form action="/registrarcurso" method="post">
+    <div class="form-group">
+      <label>Nombre completo:</label>
+      <input type="text" class="form-control" name="nombreC" value="{{nombreC}}" placeholder="Nombre completo del curso"
+        required>
+      <label>ID:</label>
+      <input type="number" class="form-control" name="id" placeholder="Número de identificación del curso" required>
+      <label>Descripción:</label>
+      <textarea type="text" class="form-control" name="descripcion" placeholder="Descripción del curso"
+        required>{{descripcion}}</textarea>
+      <label>Valor ($):</label>
+      <input type="number" class="form-control" name="valor" value="{{valor}}" placeholder="Valor del curso" required>
+      <label>Modalidad:</label>
+      <select class="form-control" name="modalidad">
+        <option value="{{modalidad}}">{{modalidad}}</option>
+        <option value="Presencial">Presencial</option>
+        <option value="Virtual">Virtual</option>
+      </select>
+      <label>Intensidad horaria (por hora):</label>
+      <input type="text" class="form-control" name="intensidad" value="{{intensidad}}"
+        placeholder="Intensidad horaria del curso"><br>
+      <div class="text-right">
+        <button class="btn btn-dark">Registrar</button>
+      </div>
+    </div>
+  </form>
+</div>
+{{>footer}}

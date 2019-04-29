@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="/css/bootstrap.min.css" type="text/css">
+  <title>Educación</title>
+</head>
+
+<body>
+  <div class="container"
+    style="border-top: 1px solid silver;border-left: 1px solid silver; border-right: 1px solid silver; border-bottom: 1px solid silver">
+   
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #c2c2c259;">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mr-auto">
+          {{#unless sesion}}
+          <li class="nav-item ">
+            <a class="nav-link" href="/">REGISTRO</a>
+          </li>
+          {{/unless}}
+          {{#if coordinador}}
+          <li class="nav-item">
+            <a class="nav-link" href="/registrarcurso">REGISTRAR CURSO</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/administrar">ADMINISTRAR CURSOS</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/administrar3">ADMINISTRAR INSCRITOS</a>
+          </li>
+          {{/if}}
+          {{#unless coordinador}}
+          <li class="nav-item">
+            <a class="nav-link" href="/vercursos">VER CURSOS</a>
+          </li>
+          {{/unless}}
+          {{#if sesion}}
+          {{#unless coordinador}}
+          <li class="nav-item">
+            <a class="nav-link" href="/inscribirse">INSCRIBIRSE</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/cambiar">CAMBIAR CONTRASEÑA</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/cambiar2">CAMBIAR FOTO</a>
+          </li>
+          {{/unless}}
+          {{/if}}
+          
+        </ul>
+        {{#if sesion}}
+        <form class="form-inline my-2 my-lg-0" action="/salir" method="get">
+          {{#unless coordinador}}
+          <img src="data:img/png;base64,{{avatar}}" class="img-fluid" style="max-width: 40px;max-height:40px;margin-right: 10px;border-radius: 5px;">
+          {{/unless}}
+          <h3>{{nombre}}</h3>
+          <button class="btn btn-danger my-2 my-sm-0" style="margin-left:10px" type="submit">Salir</button>
+        </form>
+        {{else}}
+        <form class="form-inline my-2 my-lg-0" action="/ingresar" method="post">
+          <input class="form-control mr-sm-2" type="number" name="dni" placeholder="Documento">
+          <input class="form-control mr-sm-2" type="password" name="password" placeholder="Contraseña">
+          <button class="btn btn-primary my-2 my-sm-0" type="submit">Ingresar</button>
+        </form>
+        {{/if}}
+      </div>
+    </nav>
